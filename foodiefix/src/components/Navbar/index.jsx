@@ -1,89 +1,25 @@
-import React, { useState } from "react";
-import { Link } from "react-scroll";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React from 'react';
 
-const Index = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
+const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <Link to="home" smooth={true} duration={500} onClick={closeMenu}>
-          <h1 className="navbar-logo">FoodieFIX</h1>
-        </Link>
-
-        <div className="menu-icon" onClick={toggleMenu}>
-          {isOpen ? <FaTimes /> : <FaBars />}
+    <header className="bg-slate-800 py-4">
+      <nav className="container mx-auto flex items-center justify-between">
+        <a href="#" className="flex items-center font-bold text-2xl text-white">
+          <img src alt="Logo" className="w-8 h-8 mr-2" />
+          Foodiefix
+        </a>
+        <div className="space-x-6">
+          <a href="#" className="text-base font-medium text-white hover:text-gray-300">Home</a>
+          <a href="#" className="text-base font-medium text-white hover:text-gray-300">Recipe</a>
+          <a href="#" className="text-base font-medium text-white hover:text-gray-300">Recipes</a>
+          <a href="#" className="text-base font-medium text-white hover:text-gray-300">Category</a>
+          <a href="#" className="text-base font-medium text-white hover:text-gray-300">About us</a>
+          <a href="#" className="text-base font-medium text-white hover:text-gray-300">Menu</a>
         </div>
-
-        <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
-            <Link
-              to="home"
-              smooth={true}
-              duration={500}
-              onClick={closeMenu}
-              className="nav-link"
-            >
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="dishes"
-              smooth={true}
-              duration={500}
-              onClick={closeMenu}
-              className="nav-link"
-            >
-              Dishes
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="about"
-              smooth={true}
-              duration={500}
-              onClick={closeMenu}
-              className="nav-link"
-            >
-              About
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="menu"
-              smooth={true}
-              duration={500}
-              onClick={closeMenu}
-              className="nav-link"
-            >
-              Menu
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="reviews"
-              smooth={true}
-              duration={500}
-              onClick={closeMenu}
-              className="nav-link"
-            >
-              Reviews
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
-export default Index;
+export default Navbar;
+
