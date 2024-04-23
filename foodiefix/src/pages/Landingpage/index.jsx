@@ -5,8 +5,9 @@ import Recipesection from '../../components/Recipesection/index.jsx';
 import Footer from '../../components/Footer/index.jsx';
 import Aboutus from '../../components/Aboutus/index.jsx';
 import Testimonial from '../../components/Testimonial/index.jsx';
+import Menusection from '../../components/Menusection/index.jsx'
 
-import Createmeals from '../../pages/Createmeals/index.jsx';
+
 
 const index = () => {
   return (
@@ -14,11 +15,9 @@ const index = () => {
    <Navbar />
    <Hero />
    <Recipesection />
+   <Menusection />
    <Aboutus />
    <Testimonial />
-   
-   <Createmeals />
-   
    <Footer />
 
     </div>
