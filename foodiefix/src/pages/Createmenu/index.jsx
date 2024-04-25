@@ -7,8 +7,31 @@ const Createmenu = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-  };
+  
+    // Create a new menu object with the input values
+    const newMenu = {
+      menuTitle: menuTitle,
+      description: description
+    };
+  
+    // Send the POST request to the API endpoint
+    fetch('http://localhost:4000/api/menus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newMenu)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data if needed
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the request
+        console.error('Error:', error);
+      });
+  }; 
 
   return (
     <div

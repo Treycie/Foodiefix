@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-slate-800 py-4">
+    <header className={`bg-slate-800 py-4 ${isScrolled ? 'fixed top-0 left-0 w-full' : ''}`}>
       <nav className="container mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center font-bold text-2xl text-white">
           Foodie<span className="text-green-500 text-xl">fix</span>
